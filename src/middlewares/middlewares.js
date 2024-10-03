@@ -9,9 +9,11 @@ exports.outroMiddleware = (req, res, next) => {
 
 // Faz a verificação do token
 exports.checkCsrfError = (err, req, res, next) => {
-    if(err && 'EBADCSRFTOKEN' === err.code) {
+    if(err) {
         return res.render('error404');
     }
+
+    next();
 };
 
 // Cria um token e armazena para depois fazer a verificação
