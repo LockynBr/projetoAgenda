@@ -6,6 +6,7 @@ const app = express();
 const mongoose = require('mongoose'); // O mongoose retorna uma promisse que quando estiver pronto, passa o valor para o server que está escutando.
 mongoose.connect(process.env.CONNECTIONSTRING)
     .then(() => {
+        
         app.emit('ready');
     }).catch(e => console.log(e));
 
